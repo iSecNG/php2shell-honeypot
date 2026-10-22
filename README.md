@@ -4,6 +4,9 @@ Honeypot for PHP2Shell (CVE-2026-109618 / CVE-2026-109619). Pretends to be a PHP
 
 There is no PHP in the container. Commands and PHP snippets found in requests are interpreted by `fakeshell.py`, nothing gets executed.
 
+> [!IMPORTANT]
+> This honeypot is a work in progress. It already runs well, but it isn't finished yet: expect missing features, rough edges and changes to the event format between versions.
+
 ## Quick start
 
 ```bash
