@@ -1,4 +1,7 @@
-"""HTTP server posing as Apache 2.4 + mod_php 8.3."""
+"""HTTP server posing as Apache 2.4 + mod_php 8.3.
+
+Author: Markus Fritz (wirehack7)
+"""
 
 import gzip
 import hashlib

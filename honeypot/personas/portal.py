@@ -1,6 +1,8 @@
 """Hand-written PHP customer portal, Bootstrap look.
 
 Plain .php files, so 404s come from Apache.
+
+Author: Markus Fritz (wirehack7)
 """
 
 import html

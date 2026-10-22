@@ -1,4 +1,7 @@
-"""events.jsonl writer."""
+"""events.jsonl writer.
+
+Author: Markus Fritz (wirehack7)
+"""
 
 import json
 import sys

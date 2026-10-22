@@ -1,4 +1,7 @@
-"""MaxMind GeoLite2 ASN + City from HP_GEOIP_DIR."""
+"""MaxMind GeoLite2 ASN + City from HP_GEOIP_DIR.
+
+Author: Markus Fritz (wirehack7)
+"""
 
 import logging
 import os

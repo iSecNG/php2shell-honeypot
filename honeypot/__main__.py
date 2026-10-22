@@ -1,4 +1,7 @@
-"""Entry point: `python -m honeypot` starts the HTTP(S) sensor."""
+"""Entry point: `python -m honeypot` starts the HTTP(S) sensor.
+
+Author: Markus Fritz (wirehack7)
+"""
 
 import logging
 import threading

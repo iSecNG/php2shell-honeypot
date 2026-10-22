@@ -1,4 +1,7 @@
-"""Settings from HP_* environment variables."""
+"""Settings from HP_* environment variables.
+
+Author: Markus Fritz (wirehack7)
+"""
 
 import os
 from dataclasses import dataclass, field

@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
-"""Usage: report.py [events.jsonl] [--ip 1.2.3.4] [--since 2026-10-22]"""
+"""Usage: report.py [events.jsonl] [--ip 1.2.3.4] [--since 2026-10-22]
+
+Author: Markus Fritz (wirehack7)
+"""
 
 import argparse
 import json

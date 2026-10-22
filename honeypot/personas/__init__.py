@@ -1,4 +1,7 @@
-"""Personas: the fake site served on top of the fake Apache/PHP stack."""
+"""Personas: the fake site served on top of the fake Apache/PHP stack.
+
+Author: Markus Fritz (wirehack7)
+"""
 
 from ..config import Config
 from .base import Persona, Request, Response

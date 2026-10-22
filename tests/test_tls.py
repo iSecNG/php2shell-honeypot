@@ -1,4 +1,7 @@
-"""HTTPS listener and ACME tests (python -m unittest discover -s tests)."""
+"""HTTPS listener and ACME tests (python -m unittest discover -s tests).
+
+Author: Markus Fritz (wirehack7)
+"""
 
 import http.client
 import json

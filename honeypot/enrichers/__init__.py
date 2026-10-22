@@ -1,4 +1,7 @@
-"""IP enrichers that add AS and geo data to the event source."""
+"""IP enrichers that add AS and geo data to the event source.
+
+Author: Markus Fritz (wirehack7)
+"""
 
 import logging
 

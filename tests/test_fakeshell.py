@@ -1,4 +1,7 @@
-"""Fake shell emulation tests (python -m unittest discover -s tests)."""
+"""Fake shell emulation tests (python -m unittest discover -s tests).
+
+Author: Markus Fritz (wirehack7)
+"""
 
 import unittest
 

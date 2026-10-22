@@ -1,6 +1,8 @@
 """ip-api.com enricher.
 
 Free tier is 45 req/min over HTTP, HP_IPAPI_KEY switches to pro.
+
+Author: Markus Fritz (wirehack7)
 """
 
 import json

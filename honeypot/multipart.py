@@ -1,6 +1,8 @@
 """multipart/form-data parser.
 
 Lenient enough not to choke on the broken bodies attackers send.
+
+Author: Markus Fritz (wirehack7)
 """
 
 import hashlib

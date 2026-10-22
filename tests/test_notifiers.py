@@ -1,4 +1,7 @@
-"""Discord notifier tests (python -m unittest discover -s tests)."""
+"""Discord notifier tests (python -m unittest discover -s tests).
+
+Author: Markus Fritz (wirehack7)
+"""
 
 import http.server
 import json

@@ -2,6 +2,8 @@
 
 Settings: HP_DISCORD_WEBHOOK_URL, HP_DISCORD_COOLDOWN,
 HP_DISCORD_OTHER_EXPLOITS, HP_DISCORD_STARTUP
+
+Author: Markus Fritz (wirehack7)
 """
 
 import json

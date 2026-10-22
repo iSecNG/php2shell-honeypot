@@ -1,6 +1,8 @@
 """WordPress 6.x site, Twenty Twenty-Four look.
 
 Comes with a made-up upload plugin "simple-file-upload".
+
+Author: Markus Fritz (wirehack7)
 """
 
 import html

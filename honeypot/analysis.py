@@ -1,6 +1,8 @@
 """PHP2Shell indicators and stage classification.
 
 Also finds attacker code in requests and emulates it with the fake shell.
+
+Author: Markus Fritz (wirehack7)
 """
 
 import re

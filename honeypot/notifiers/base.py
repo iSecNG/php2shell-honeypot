@@ -1,4 +1,7 @@
-"""Notifier base class and the thread that runs them."""
+"""Notifier base class and the thread that runs them.
+
+Author: Markus Fritz (wirehack7)
+"""
 
 import logging
 import queue

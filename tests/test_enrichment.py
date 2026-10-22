@@ -1,4 +1,7 @@
-"""IP enrichment tests (python -m unittest discover -s tests)."""
+"""IP enrichment tests (python -m unittest discover -s tests).
+
+Author: Markus Fritz (wirehack7)
+"""
 
 import http.server
 import json

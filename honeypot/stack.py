@@ -1,4 +1,7 @@
-"""Pages that come from Apache/PHP itself."""
+"""Pages that come from Apache/PHP itself.
+
+Author: Markus Fritz (wirehack7)
+"""
 
 import html
 

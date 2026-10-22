@@ -1,6 +1,8 @@
 """Attack-only logging and storage tests.
 
 Run with: python -m unittest discover -s tests
+
+Author: Markus Fritz (wirehack7)
 """
 
 import os

@@ -1,4 +1,7 @@
-"""Notifiers that push selected events to external services."""
+"""Notifiers that push selected events to external services.
+
+Author: Markus Fritz (wirehack7)
+"""
 
 import logging
 

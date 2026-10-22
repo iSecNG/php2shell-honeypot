@@ -1,6 +1,8 @@
 """Downloads payload URLs from attacker commands (HP_FETCH_SAMPLES=1).
 
 Private targets are refused.
+
+Author: Markus Fritz (wirehack7)
 """
 
 import hashlib

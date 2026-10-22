@@ -3,6 +3,8 @@
 This is the sensor's own diagnostic log (startup, errors, notable
 events), written to stderr. Attack data goes to events.jsonl through
 :class:`honeypot.eventlog.EventLog`, which is unaffected by this.
+
+Author: Markus Fritz (wirehack7)
 """
 
 import logging

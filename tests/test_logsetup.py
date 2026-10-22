@@ -1,6 +1,8 @@
 """Diagnostic logging setup tests.
 
 Run with: python -m unittest discover -s tests
+
+Author: Markus Fritz (wirehack7)
 """
 
 import logging

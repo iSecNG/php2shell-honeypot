@@ -1,6 +1,8 @@
 """Fake shell and PHP.
 
 Returns what an Ubuntu 24.04 web server would print, nothing is executed.
+
+Author: Markus Fritz (wirehack7)
 """
 
 import base64

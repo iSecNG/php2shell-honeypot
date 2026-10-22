@@ -1,4 +1,7 @@
-"""Base class for personas (the site on top of the fake Apache/PHP)."""
+"""Base class for personas (the site on top of the fake Apache/PHP).
+
+Author: Markus Fritz (wirehack7)
+"""
 
 import html
 import json

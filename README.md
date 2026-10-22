@@ -253,6 +253,10 @@ Sample downloads often go to odd ports, so either leave egress open or allow 80/
 
 TLS tests need the `openssl` binary. The GeoLite test needs MaxMind's test databases (`test-data/` in github.com/maxmind/MaxMind-DB) in `HP_TEST_GEOIP_DIR`, otherwise it's skipped.
 
+## Author
+
+Built by Markus Fritz ([wirehack7](https://github.com/wirehack7)).
+
 ## License
 
 [MIT](LICENSE) © 2026 iSecNG GmbH

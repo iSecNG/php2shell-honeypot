@@ -2,6 +2,8 @@
 
 Importing this module puts the repository root on sys.path, so test
 modules must import it before any ``honeypot`` module.
+
+Author: Markus Fritz (wirehack7)
 """
 
 import http.client

@@ -1,6 +1,8 @@
 """Base class for IP enrichers.
 
 query() returns {"as": ..., "geo": ...} in ECS layout, merged into "source".
+
+Author: Markus Fritz (wirehack7)
 """
 
 import ipaddress

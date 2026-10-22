@@ -1,4 +1,7 @@
-"""WordPress persona tests (python -m unittest discover -s tests)."""
+"""WordPress persona tests (python -m unittest discover -s tests).
+
+Author: Markus Fritz (wirehack7)
+"""
 
 import base64
 import hashlib
