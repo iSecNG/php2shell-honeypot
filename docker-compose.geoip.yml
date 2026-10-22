@@ -1,7 +1,7 @@
 # GeoLite2 updates, needs GEOIPUPDATE_ACCOUNT_ID and GEOIPUPDATE_LICENSE_KEY
 services:
   geoipupdate:
-    image: ghcr.io/maxmind/geoipupdate:v7.1.0
+    image: ghcr.io/maxmind/geoipupdate:v7.1.1
     container_name: php2shell-geoipupdate
     restart: unless-stopped
     network_mode: bridge
