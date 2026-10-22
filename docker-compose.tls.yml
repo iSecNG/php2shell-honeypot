@@ -13,7 +13,7 @@ services:
       - ./acme:/acme:ro
 
   certbot:
-    image: certbot/certbot:v2.11.0
+    image: certbot/certbot:v5.8.0
     container_name: php2shell-certbot
     restart: unless-stopped
     # not on the honeypot network, so egress rules for it don't apply
