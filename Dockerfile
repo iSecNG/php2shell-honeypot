@@ -1,4 +1,4 @@
-FROM python:3.12.7-slim-bookworm
+FROM python:3.15.1-slim-bookworm
 
 LABEL org.opencontainers.image.title="php2shell-honeypot" \
       org.opencontainers.image.description="PHP2Shell honeypot (CVE-2026-109618/109619)"
