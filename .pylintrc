@@ -1,0 +1,6 @@
+[MAIN]
+init-hook="import sys; sys.path.insert(0, '.')"
+
+[FORMAT]
+# PEP 8: limit all lines to a maximum of 79 characters.
+max-line-length=79

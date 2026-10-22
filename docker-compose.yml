@@ -1,0 +1,42 @@
+services:
+  php2shell-honeypot:
+    build: .
+    container_name: php2shell-honeypot
+    restart: unless-stopped
+    ports:
+      - "80:8080"
+    environment:
+      HP_SENSOR: "php2shell-hp-01"
+      HP_HOSTNAME: "web-prod-02"
+      HP_PHP_VERSION: "8.3.6"
+      HP_SERVER_HEADER: "Apache/2.4.58 (Ubuntu)"
+      HP_PERSONA: "${HP_PERSONA:-wordpress}"
+      HP_WP_VERSION: "6.6.2"
+      HP_SITE_TITLE: "${HP_SITE_TITLE:-Example Logistics LLC}"
+      HP_SITE_TAGLINE: "${HP_SITE_TAGLINE:-Logistics that just works.}"
+      HP_FETCH_SAMPLES: "${HP_FETCH_SAMPLES:-0}"
+      HP_TRUST_XFF: "0"
+      HP_LOG: "${HP_LOG:-attacks}"
+      HP_LOG_LEVEL: "${HP_LOG_LEVEL:-INFO}"
+      HP_LOG_STDOUT: "0"
+      HP_ENRICHER: "${HP_ENRICHER:-}"
+      HP_IPAPI_KEY: "${HP_IPAPI_KEY:-}"
+      HP_NOTIFIERS: "${HP_NOTIFIERS:-}"
+      HP_DISCORD_WEBHOOK_URL: "${HP_DISCORD_WEBHOOK_URL:-}"
+      HP_DISCORD_COOLDOWN: "${HP_DISCORD_COOLDOWN:-600}"
+      HP_DISCORD_OTHER_EXPLOITS: "${HP_DISCORD_OTHER_EXPLOITS:-0}"
+    volumes:
+      - ./data:/data
+      - ./geoip:/geoip:ro
+    read_only: true
+    tmpfs:
+      - /tmp:size=16m,noexec,nosuid
+    cap_drop: [ALL]
+    security_opt:
+      - no-new-privileges:true
+    mem_limit: 768m
+    pids_limit: 128
+    cpus: 1.0
+    logging:
+      driver: json-file
+      options: {max-size: "20m", max-file: "3"}

@@ -1,0 +1,34 @@
+# HTTPS via Let's Encrypt, needs HP_DOMAIN and ACME_EMAIL
+services:
+  php2shell-honeypot:
+    ports:
+      - "443:8443"
+    environment:
+      HP_TLS_PORT: "8443"
+      HP_TLS_CERT: "/tls/fullchain.pem"
+      HP_TLS_KEY: "/tls/privkey.pem"
+      HP_ACME_WEBROOT: "/acme"
+    volumes:
+      - ./tls:/tls:ro
+      - ./acme:/acme:ro
+
+  certbot:
+    image: certbot/certbot:v2.11.0
+    container_name: php2shell-certbot
+    restart: unless-stopped
+    # not on the honeypot network, so egress rules for it don't apply
+    network_mode: bridge
+    entrypoint: ["/bin/sh", "/deploy/certbot.sh"]
+    environment:
+      HP_DOMAIN: "${HP_DOMAIN:?set HP_DOMAIN}"
+      HP_EXTRA_DOMAINS: "${HP_EXTRA_DOMAINS:-}"   # space separated
+      ACME_EMAIL: "${ACME_EMAIL:?set ACME_EMAIL}"
+      ACME_STAGING: "${ACME_STAGING:-0}"
+    volumes:
+      - ./letsencrypt:/etc/letsencrypt
+      - ./acme:/acme
+      - ./tls:/tls
+      - ./deploy:/deploy:ro
+    logging:
+      driver: json-file
+      options: {max-size: "5m", max-file: "2"}

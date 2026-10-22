@@ -1,0 +1,18 @@
+# GeoLite2 databases (MaxMind license, downloaded separately)
+GeoLite2-ASN.mmdb
+GeoLite2-City.mmdb
+GeoLite2-*.tar.gz
+*.mmdb
+geoip/
+
+# Runtime data, certificates and secrets
+data/
+tls/
+acme/
+letsencrypt/
+.env
+
+# Python
+.venv/
+__pycache__/
+*.pyc
