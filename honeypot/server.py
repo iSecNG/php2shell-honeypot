@@ -12,6 +12,7 @@ import re
 import secrets
 import socket
 import ssl
+import sys
 import threading
 import time
 import urllib.parse
@@ -205,6 +206,16 @@ class HoneypotServer(  # pylint: disable=too-many-instance-attributes
             super().process_request_thread(request, client_address)
         finally:
             self._slots.release()
+
+    def handle_error(self, request, client_address):
+        """Log handler errors; aborted connections only at debug level."""
+        exc = sys.exception()
+        if isinstance(exc, (ConnectionError, TimeoutError, ssl.SSLError)):
+            logger.debug(
+                "connection from %s aborted: %s", client_address[0], exc
+            )
+            return
+        logger.exception("error handling request from %s", client_address[0])
 
     def _handshake(self, request, client_address):
         # in the worker thread, not in accept()

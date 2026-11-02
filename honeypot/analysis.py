@@ -54,6 +54,14 @@ class Analysis:
         return [t for t in self.tags if t.startswith("php2shell.")]
 
 
+def _content_length(headers: dict[str, list[str]]) -> int:
+    """Declared Content-Length, 0 if missing or invalid."""
+    try:
+        return max(int((headers.get("content-length") or ["0"])[0]), 0)
+    except ValueError:
+        return 0
+
+
 # positional signature is used by the server
 # pylint: disable-next=too-many-arguments,too-many-positional-arguments
 def classify(
@@ -82,7 +90,12 @@ def classify(
     elif "multipart" in ctype.lower():
         a.tag("php2shell.multipart_without_boundary")
 
-    if method == "POST" and (len(body) >= arm_threshold or body_truncated):
+    # a client that sends less than its Content-Length is not an OOM attempt
+    declared = _content_length(headers)
+    if method == "POST" and (
+        len(body) >= arm_threshold
+        or (body_truncated and declared >= arm_threshold)
+    ):
         a.tag("php2shell.oversized_body")
 
     a.arm = any(

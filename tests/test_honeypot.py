@@ -7,6 +7,7 @@ import base64
 import hashlib
 import http.client
 import json
+import socket
 import time
 import unittest
 from pathlib import Path
@@ -169,6 +170,40 @@ class HoneypotTest(ServerTestCase):
         self.assertTrue(
             Path(ev["http"]["request"]["body"]["stored"]["path"]).exists()
         )
+
+    def test_short_body_is_not_oversized(self):
+        """A body shorter than its Content-Length is no OOM attempt."""
+        sock = socket.create_connection(("127.0.0.1", self.port), timeout=10)
+        sock.sendall(
+            b"POST /HNAP1/ HTTP/1.1\r\nHost: x\r\n"
+            b"Content-Type: text/xml\r\nContent-Length: 640\r\n\r\n"
+            + b"<x/>" * 100
+        )
+        sock.shutdown(socket.SHUT_WR)
+        status = sock.recv(64).split(b"\r\n", 1)[0]
+        sock.close()
+        time.sleep(0.05)
+        self.assertNotIn(b"500", status)
+        ev = self.events("http_request")[-1]
+        self.assertTrue(ev["http"]["request"]["body"]["truncated"])
+        self.assertNotIn("php2shell.oversized_body", ev["tags"])
+
+    def test_aborted_connection_logged_at_debug(self):
+        """Resets and TLS garbage don't produce error tracebacks."""
+        for exc in (ConnectionResetError(104, "reset"), ValueError("bug")):
+            with self.assertLogs("honeypot.server", "DEBUG") as cm:
+                try:
+                    raise exc
+                except (ConnectionResetError, ValueError):
+                    self.srv.handle_error(None, ("192.0.2.1", 1))
+            level = cm.records[-1].levelname
+            expected = "DEBUG" if isinstance(exc, ConnectionError) else "ERROR"
+            self.assertEqual(level, expected)
+
+    def test_wp_version_php_is_empty(self):
+        """wp-includes/version.php exists but prints nothing."""
+        r, body = self.req("GET", "/wp-includes/version.php")
+        self.assertEqual((r.status, body), (200, ""))
 
     def test_many_empty_filenames(self):
         """Many parts with empty filenames are tagged and get a 500."""

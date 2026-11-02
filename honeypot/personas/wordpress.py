@@ -517,6 +517,7 @@ class WordPressPersona(Persona):
             "/feed/": self._feed,
             "/readme.html": self._readme,
             "/license.txt": self._license,
+            "/wp-includes/version.php": self._empty_php,
         }
 
     def uploads_dir(self) -> str:
@@ -654,6 +655,10 @@ class WordPressPersona(Persona):
             "WordPress - Web publishing software\n\n"
             "Copyright 2011-2024 by the contributors\n",
         )
+
+    def _empty_php(self, _req: Request) -> Response:
+        # version.php only sets variables, direct requests get an empty 200
+        return Response(200, HTML, "", self.php_headers())
 
     def not_found(self, req: Request) -> Response:
         # files and wp-* get Apache's 404, the rest goes through permalinks

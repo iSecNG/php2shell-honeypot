@@ -63,6 +63,7 @@ Both answer on the upload paths seen in PHP2Shell scans (`/upload.php`, `/app/up
 | `/wp-json/`, `/wp-json/wp/v2/users` | REST index, user `editor` |
 | `/xmlrpc.php` | fault 403 on POST |
 | `/readme.html`, `/license.txt`, `/feed/`, `/author/editor/` | |
+| `/wp-includes/version.php` | empty 200 like the real file |
 | `/robots.txt`, `/wp-sitemap.xml`, `/wp-sitemap-*-1.xml` | core sitemaps |
 | everything else | themed 404, Apache 404 for files |
 
